@@ -35,7 +35,7 @@ var extractByClass = (input) => {
 
   let content = '';
 
-  let $ = cheerio.load(html);
+  let $ = cheerio.load(html,  { decodeEntities: false });
 
   if ($) {
 
@@ -106,7 +106,7 @@ var extractWiki = (input) => {
       html
     } = input;
 
-    let $ = cheerio.load(html);
+    let $ = cheerio.load(html,  { decodeEntities: false });
 
     if ($) {
       let c = $('#mw-content-text');
@@ -127,7 +127,7 @@ var extractWiki = (input) => {
 var cleanify = (html = '') => {
   if (html) {
     let s = sanitize(html, contentOnlyRule);
-    let $ = cheerio.load(s);
+    let $ = cheerio.load(s,  { decodeEntities: false });
 
     $('a').attr('target', '_blank');
     html = $.html();
