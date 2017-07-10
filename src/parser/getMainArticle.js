@@ -155,7 +155,7 @@ var normalize = (input) => {
     let s1 = stripTags(c1);
     let s2 = stripTags(c2);
 
-    content = s1.length < s2.length ? c1 : c2;
+    content = s1.length > s2.length ? c1 : c2;
   }
 
   return Promise.resolve(content);
